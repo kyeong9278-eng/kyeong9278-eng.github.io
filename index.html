@@ -347,7 +347,7 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 }));
 const ds=document.querySelectorAll('.coach details');
 ds.forEach(d=>d.addEventListener('toggle',()=>ds.forEach(o=>{if(o!==d&&o.open!==d.open)o.open=d.open;})));
-// 시간표 현황: 아래 숫자(현재 인원)만 바꾸면 표시가 자동으로 바뀝니다. 정원 8명, 5명부터 마감 임박
+// 시간표 현황: 아래 숫자(현재 인원)만 바꾸면 표시가 자동으로 바뀝니다. 정원 10명, 5명부터 마감 임박
 const SCHEDULE=[
   ['월','16:00',3,'1시간 · 픽업 가능'],['월','18:00',4,'1시간 · 픽업 가능'],
   ['화','18:00',7,'1시간 · 픽업 가능'],
@@ -356,7 +356,7 @@ const SCHEDULE=[
   ['금','16:00',5,'1시간 · 픽업 가능'],['금','18:00',8,'1시간 · 픽업 가능'],
   ['토','12:00',6,'1시간 30분 · 픽업 없음'],
   ['일','12:00',5,'1시간 30분 · 픽업 없음']];
-const CAP=8, NEAR=5;
+const CAP=10, NEAR=5;
 // 구글 시트 연동: 시트를 '웹에 게시'(CSV)한 주소를 아래에 넣으면, 위 숫자 대신 시트 내용으로 표시됩니다.
 // 시트 칸 순서: 요일 | 시간 | 현재인원 | 안내   (첫 줄은 제목 줄)
 const SHEET_CSV_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vQe4M20xrkKygFp7PlOBbeM3Drtf_AA4JqsaB4mRuUGLxiIHRktgmBi01XRACV22HJKOeZ1Ukpukvqf/pub?output=csv';
