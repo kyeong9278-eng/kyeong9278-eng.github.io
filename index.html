@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>마스터 아카데미 취미반</title>
+<meta name="description" content="인천 부평구 7~15세 취미반 야구 교실. 350평 실내 구장에서 선수 출신 코치가 지도하는 그룹 야구 수업, 시간표·요금·체험 신청 안내.">
+<meta property="og:title" content="마스터 아카데미 취미반 야구 교실">
+<meta property="og:description" content="인천 부평구 안남로 429 · 7~15세 취미 야구 · 체험 수업 신청">
+<meta property="og:image" content="img/field.jpg">
+<link rel="icon" href="img/logo.png">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 레이아웃: 하늘색·햇살 노랑의 밝은 세로 흐름, 둥근 카드, 상단 고정 메뉴 */
+:root{
+  --bg:#fffaf0; --surface:#ffffff; --ink:#221c35; --muted:#4f4866;
+  --line:#d9c9a8; --edge:#c9b68d; --sky:#d9efff; --sun:#ffd54a; --accent:#ff7a59; --grass:#5cc489;
+  --todo-bg:#fff3c4; --todo-ink:#6b4b00; --ok:#1f7a48; --warn:#c7401d;
+  --display:"Jua","Noto Sans KR",system-ui,sans-serif;
+  --body:"Noto Sans KR",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1d1a2b; --surface:#29253b; --ink:#f6f1ff; --muted:#bdb4d4;
+  --line:#4a4366; --edge:#5a527a; --sky:#253552; --sun:#ffd54a; --accent:#ff9a7f; --grass:#7ad9a4;
+  --todo-bg:#3d3418; --todo-ink:#ffe08a; --ok:#7ad9a4; --warn:#ff8a6b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1d1a2b; --surface:#29253b; --ink:#f6f1ff; --muted:#bdb4d4;
+  --line:#4a4366; --edge:#5a527a; --sky:#253552; --sun:#ffd54a; --accent:#ff9a7f; --grass:#7ad9a4;
+  --todo-bg:#3d3418; --todo-ink:#ffe08a; --ok:#7ad9a4; --warn:#ff8a6b; color-scheme:dark}
+*{box-sizing:border-box}
+body{word-break:keep-all;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;font-weight:500}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:2px solid var(--edge)}
+header .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+header a{color:var(--ink);text-decoration:none;font-family:var(--display);font-size:16px;white-space:nowrap;padding:6px 12px;border-radius:99px}
+header a:hover,header a:focus-visible{background:var(--sun);color:#3a3352;outline:none}
+/* 첫 화면: 밝은 낮 야구장 그림(라이트·다크 공통 고정 색) 위에 풍선 글씨 */
+.hero{position:relative;overflow:hidden;border-radius:0 0 36px 36px;background:#2f7a54;padding-block:24px 120px;color:#221c35}
+.field{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 70%;pointer-events:none;max-width:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,14,24,.62) 0%,rgba(12,14,24,.35) 50%,rgba(12,14,24,0) 85%)}
+.hero .wrap{z-index:2}
+.title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
+.logo-col{position:relative;flex:none;display:grid}
+.hero-events{position:absolute;top:calc(100% + 10px);left:0;right:0}
+@media (max-width:640px){.logo-col{position:static}.hero .wrap{position:relative}.title-row{position:static}}
+.title-row h1{min-width:0}
+.hero .wrap{max-width:980px}
+.logo{flex:none;width:clamp(76px,24vw,250px);height:auto;background:#ffffff;padding:8px;border-radius:22px;box-shadow:0 4px 0 rgba(34,28,53,.18)}
+.coach{display:grid;grid-template-columns:104px 1fr;gap:12px 14px;align-content:start;align-items:center}
+.coach > ul,.coach > details{grid-column:1/-1}
+.coach img{width:104px;aspect-ratio:1/1;object-fit:cover;object-position:center 15%;border-radius:14px;border:2px solid var(--edge);background:var(--line)}
+.coach .role{font-size:14px;font-weight:700;color:var(--warn)}
+.coach ul{margin:0;padding-left:18px;display:grid;gap:2px;font-size:15px}
+.coach details{font-size:14px;color:var(--muted)}
+.coach summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.coach details ul{margin-top:8px;font-size:14px}
+.coach details h4{margin:10px 0 4px;font-size:14px;color:var(--ink)}
+.gallery{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.gallery img{height:240px;width:auto;max-width:none;border-radius:16px;border:2px solid var(--edge);scroll-snap-align:start;flex:none}
+.hero .wrap{display:grid;gap:14px;position:relative;justify-items:start}
+.eyebrow{font-size:14px;font-weight:700;background:#ffffff;color:#c7401d;border:2px solid #c7401d;padding:4px 12px;border-radius:99px}
+h1{font-family:var(--display);font-weight:400;margin:0;line-height:1.1;display:grid;gap:2px}
+.balloon{display:block;font-size:clamp(30px,8.6vw,62px);letter-spacing:.01em;
+  -webkit-text-stroke:8px #ffffff;paint-order:stroke fill;
+  animation:bob 3.2s ease-in-out infinite}
+.balloon.b1{color:#ff6b4a}
+.balloon.b2{color:#2f8cff;animation-delay:-1.6s}
+.balloon .y{color:#ffb800}
+.balloon .g{color:#22a86a}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.balloon{animation:none}}
+.hero p.lead{margin:0;word-break:keep-all;max-width:30em;font-size:16px;background:rgba(255,255,255,.92);color:#221c35;padding:12px 16px;border-radius:16px;border:2px solid #ffffff;box-shadow:0 4px 0 rgba(34,28,53,.12)}
+.hero .btn.ghost{background:#FEE500;color:#191919;border:2px solid #221c35}
+.hero .btn.primary{border:2px solid #221c35;box-shadow:none}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-block;padding:13px 22px;border-radius:99px;font-family:var(--display);text-decoration:none;font-size:17px}
+.btn.primary{background:#e2512c;color:#fff;box-shadow:0 4px 0 #d9573a}
+.btn.ghost{background:var(--surface);color:var(--ink);border:2px solid var(--ink)}
+.btn:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+section{padding-block:36px}
+section .wrap{display:grid;gap:16px}
+h2{font-family:var(--display);font-weight:400;font-size:30px;margin:0;line-height:1.2;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 5px var(--sun);flex:none}
+h3{font-family:var(--display);font-weight:400;font-size:19px;margin:0}
+p{margin:0}
+.muted{color:var(--muted);font-size:15px;font-weight:500}
+.todo{background:var(--todo-bg);color:var(--todo-ink);border:2px dashed currentColor;border-radius:16px;padding:12px 14px;font-size:14px}
+.todo b{display:block;margin-bottom:2px}
+.points{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.point{background:var(--surface);border-radius:20px;padding:16px;min-width:0;border:2px solid var(--edge);box-shadow:0 4px 0 var(--line)}
+.points .point:nth-child(1){border-top:6px solid var(--sky)}
+.points .point:nth-child(2){border-top:6px solid var(--sun)}
+.points .point:nth-child(3){border-top:6px solid var(--grass)}
+.coaches{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.coaches .point{display:grid;gap:8px}
+.tbl{overflow-x:auto;background:var(--surface);border-radius:20px;border:2px solid var(--edge);box-shadow:0 4px 0 var(--line)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font-size:14px;color:var(--ink);font-weight:700;background:var(--todo-bg)}
+td:first-child{font-family:var(--display);font-size:17px}
+td.num{text-align:right;font-weight:700}
+.chip{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;border:2px solid currentColor}
+.chip.ok{color:var(--ok)} .chip.warn{color:var(--warn)} .chip.tbd{color:var(--muted)}
+.tabs{display:flex;gap:8px}
+.tabs button{font-family:var(--display);font-size:17px;padding:8px 18px;border-radius:99px;border:0;background:var(--surface);color:var(--ink);cursor:pointer;border:2px solid var(--edge)}
+.tabs button[aria-selected="true"]{background:var(--sun);color:#3a3352;box-shadow:0 3px 0 #e0b52c}
+.tabs button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.route{list-style:none;margin:0;padding:18px 16px 4px;background:var(--surface);border-radius:20px;border:2px solid var(--edge)}
+.route li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;position:relative;padding-bottom:16px}
+.route li::before{content:"";width:16px;height:16px;border-radius:50%;border:4px solid var(--grass);background:var(--surface);margin-top:4px}
+.route li:last-child::before{border-color:var(--accent);background:var(--sun)}
+.route li:not(:last-child)::after{content:"";position:absolute;left:10px;top:26px;bottom:2px;width:4px;border-radius:2px;background:repeating-linear-gradient(var(--grass) 0 6px,transparent 6px 10px)}
+#price,#pickup{background:var(--sky);border-radius:36px}
+#event{background:var(--todo-bg);border-radius:36px}
+footer{padding-block:28px 40px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;background:var(--surface);border:2px solid var(--edge);border-radius:18px;padding:14px}
+.step .min{display:grid;place-items:center;height:40px;border-radius:99px;background:var(--sun);color:#221c35;font-family:var(--display);font-size:18px}
+.step > div{display:grid;gap:2px;min-width:0}
+.step .gain{font-size:14px;font-weight:700;color:var(--ok)}
+.benefit{border-top:6px solid var(--sun)}
+.benefit ul{margin:6px 0 0;padding-left:20px;display:grid;gap:4px}
+.chip.full{color:var(--surface);background:var(--muted);border-color:var(--muted)}
+table.sched td[rowspan]{vertical-align:middle;border-right:1px solid var(--line);text-align:center}
+table.sched tr.day-start td{border-top:2px solid var(--edge)}
+table.sched tbody tr:first-child td{border-top:0}
+table.sched td.time{font-family:var(--display);font-size:17px}
+table.sched td.note{font-size:14px;color:var(--muted)}
+/* 배경: 잔디색 (대표 선택 2026-11-14) */
+:root[data-bg="black"]{--bg:#0f1117;--band:#1b1f2b;--ink:#f4f1ff;--muted:#c9c4d8;--edge:#3a3f52;--line:#2a2e3d;--ok:#7ad9a4;--warn:#ff8a6b;color-scheme:dark}
+:root[data-bg="turf"]{--bg:#1d6b3a;--band:#185a31;--ink:#ffffff;--muted:#dcefe2;--edge:#0f4424;--line:#2a7d48;--ok:#b8f5cf;--warn:#ffc2ad;color-scheme:dark}
+:root[data-bg="black"] #price,:root[data-bg="black"] #pickup,:root[data-bg="black"] #event,
+:root[data-bg="turf"] #price,:root[data-bg="turf"] #pickup,:root[data-bg="turf"] #event{background:var(--band)}
+:root[data-bg] .point,:root[data-bg] .tbl,:root[data-bg] .step,:root[data-bg] .route,:root[data-bg] .tabs button,:root[data-bg] header{
+  --surface:#ffffff;--ink:#221c35;--muted:#4f4866;--line:#d9c9a8;--edge:#c9b68d;--ok:#1f7a48;--warn:#c7401d;color:var(--ink)}
+:root[data-bg] .point,:root[data-bg] .tbl,:root[data-bg] .step,:root[data-bg] .route{border-color:transparent;box-shadow:none}
+section > .wrap > h2,.subhead{justify-self:start;display:inline-flex;align-items:center;gap:10px;background:#ffffff;color:#221c35;padding:8px 18px 8px 12px;border-radius:16px;border:2px solid #0f4424;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.subhead{font-size:20px;padding:6px 16px}
+.notices{display:grid;gap:10px}
+.notice{padding:0;overflow:hidden}
+.notice summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;font-family:var(--display);font-size:19px}
+.notice summary::-webkit-details-marker{display:none}
+.notice summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--muted)}
+.notice[open] summary::after{content:"−"}
+.notice .tag{font-family:var(--body);font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--sun);color:#221c35}
+.notice ul,.notice dl,.notice > p{margin:0;padding:0 16px 14px 34px}
+.notice ul{display:grid;gap:6px}
+.notice > p{padding-left:16px}
+.faq{padding-left:16px!important;display:grid;gap:4px}
+.faq dt{font-weight:700}
+.faq dt::before{content:"Q. ";color:var(--warn)}
+.faq dd{margin:0 0 8px;color:var(--muted)}
+.events{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ev{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center}
+.ev-wide{grid-column:1/-1}
+.ev .pct{font-family:var(--display);font-size:44px;line-height:1;color:var(--warn);min-width:78px;text-align:center;background:var(--todo-bg);border-radius:16px;padding:10px 8px}
+.ev .pct small{font-size:22px}
+.ev > div{min-width:0}
+.ev .how{grid-column:1/-1;margin:6px 0 0;padding-left:22px;display:grid;gap:4px}
+.ev .fine{grid-column:1/-1;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:4px}
+:root[data-bg] .ev{--todo-bg:#fff3c4}
+.contact{display:grid;gap:10px}
+.crow{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:baseline}
+.clabel{font-size:13px;font-weight:700;color:var(--muted)}
+.phone{font-family:var(--display);font-size:24px;color:var(--ink);text-decoration:none}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lk{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;padding:13px 10px;border-radius:14px;font-weight:700;text-decoration:none;border:2px solid #221c35;color:#191919;background:#ffffff}
+.lk.kakao{background:#FEE500}
+.lk.naver{background:#03C75A;color:#ffffff}
+.lk.blog{background:linear-gradient(45deg,#00a843 0%,#03C75A 45%,#3ddc84 75%,#8ef0b4 100%);color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.trial-cta{display:grid;justify-items:center;gap:2px;text-align:center;padding:20px 16px;border-radius:20px;background:#e2512c;color:#ffffff;text-decoration:none;font-family:var(--display);font-size:26px;border:3px solid #221c35;box-shadow:0 5px 0 #221c35}
+.trial-cta small{font-family:var(--body);font-size:14px;font-weight:500;opacity:.95}
+.trial-cta:focus-visible{outline:3px solid #ffd54a;outline-offset:3px}
+.lk.insta{background:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.lk:focus-visible{outline:3px solid #ffd54a;outline-offset:2px}
+.notice a{color:var(--ok);font-weight:700}
+.lk .ic{width:20px;height:20px;flex:none}
+.hero-events{display:grid;gap:6px;justify-self:stretch;background:rgba(255,255,255,.94);border:2px solid #221c35;border-radius:16px;padding:10px 12px;text-decoration:none;color:#221c35;min-width:0}
+.he-title{font-family:var(--display);font-size:15px;color:#c7401d}
+.he{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700}
+.he b{font-family:var(--display);font-weight:400;font-size:17px;color:#ffffff;background:#e2512c;border-radius:8px;padding:1px 7px;min-width:48px;text-align:center}
+@media (max-width:640px){.hero-events{top:calc(100% + 14px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));grid-template-columns:repeat(3,1fr);column-gap:6px;padding:8px 10px}.he-title{grid-column:1/-1}.he{flex-direction:column;gap:2px;font-size:13px}}
+.hero-events:focus-visible{outline:3px solid #ffd54a;outline-offset:2px}
+.soon{display:grid;gap:6px;justify-items:start}
+.soon .tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:var(--sun);color:#221c35}
+</style>
+<script>document.documentElement.setAttribute('data-bg','turf')</script>
+
+<header><nav class="wrap" aria-label="메뉴">
+  <a href="#about">소개</a><a href="#class">수업</a><a href="#schedule">시간표</a><a href="#price">요금</a><a href="#pickup">픽업</a><a href="#notice">공지</a><a href="#event">이벤트</a><a href="#contact">문의</a>
+</nav></header>
+
+<div class="hero">
+<img class="field" src="img/field.jpg" alt="">
+<div class="wrap">
+  <span class="eyebrow">인천 부평구 취미반 야구 교실</span>
+  <div class="title-row"><h1><span class="balloon b1">마스터 아카데미</span><span class="balloon b2"><span class="y">신나는</span> 야구 <span class="g">놀이터</span></span></h1><div class="logo-col"><img class="logo" src="img/logo.png" alt="마스터 아카데미 로고"><a class="hero-events" href="#event" aria-label="이벤트 보기"><span class="he-title">진행 중인 이벤트</span><span class="he"><b>20%</b>형제 할인</span><span class="he"><b>20%</b>지인 할인</span><span class="he"><b>10%</b>후기 할인</span></a></div></div>
+  <p class="lead">350평 넓은 실내 구장에서 안전하게!<br>처음 해보는 아이도 친구들과 함께<br>즐겁게 뛰노는 취미 야구 수업이에요.</p>
+  <div class="cta">
+    <a class="btn primary" href="#trial">체험 수업 신청</a>
+    <a class="btn ghost" href="http://pf.kakao.com/_iUXan" target="_blank" rel="noopener">카카오톡 문의</a>
+  </div>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <h2>학원 소개</h2>
+  <div class="points">
+    <div class="point"><h3>350평 실내 구장</h3><p class="muted">지하 1층 넓은 실내 시설이라 날씨와 상관없이 수업합니다.</p></div>
+    <div class="point"><h3>실력 차이 상관없이</h3><p class="muted">처음 배우는 아이도, 잘하는 아이도 함께 어울리는 수업입니다.</p></div>
+    <div class="point"><h3>선수 출신 코치 지도</h3><p class="muted">야구 전문 코치들이 아이 눈높이에 맞춰 직접 지도합니다.</p></div>
+  </div>
+  <div class="coaches">
+    <div class="point coach"><img src="img/coach-moon.jpg" alt="문경찬 코치" loading="lazy">
+      <div><span class="role">Moon Kyeong Chan</span><h3>문경찬 코치</h3></div>
+      <ul><li>전 KIA 타이거즈 · NC 다이노스 · 롯데 자이언츠 투수</li><li>2019 프리미어12 국가대표</li><li>2014 WBSC 야구월드컵 국가대표</li></ul>
+      <details><summary>이력 · 경력 전체 보기</summary><h4>이력</h4><ul><li>2005~2007 동인천중학교</li><li>2008~2010 인천고등학교</li><li>2011~2014 건국대학교 (체육교육과)</li><li>2014 WBSC 야구월드컵 국가대표</li><li>2015~2020 KIA 타이거즈</li><li>2015~2017 국군체육부대 상무 야구단</li><li>2019 프리미어12 국가대표</li><li>2020~2021 NC 다이노스</li><li>2022~2023 롯데 자이언츠</li></ul><h4>경력</h4><ul><li>2008 제30회 대붕기 전국고교야구대회 우승</li><li>2008 제6회 미추홀기 전국고교야구대회 우승</li><li>2010 제8회 미추홀기 전국고교야구대회 준우승</li><li>2012 제46회 대통령기 전국대학야구대회 준우승</li><li>2012 제5회 KBO 총재기 전국대학야구대회 준우승</li><li>2012 제93회 전국체전 야구 일반부 우승 (금메달)</li><li>2013 제47회 대통령기 전국대학야구대회 우승 (우수투수상)</li><li>2014 제53회 회장기 전국대학 춘계리그 준우승 (감투상)</li><li>2014 제17회 인천 아시안게임 아마추어 쿼터 후보</li></ul></details>
+    </div>
+    <div class="point coach"><img src="img/coach-cha.jpg" alt="차희태 코치" loading="lazy">
+      <div><span class="role">Cha Hee Tae</span><h3>차희태 코치</h3></div>
+      <ul><li>전 삼성 라이온즈 (2015~2020)</li><li>동국대학교 체육교육과</li><li>대학 시절 전국대회 우승 다수</li></ul>
+      <details><summary>이력 · 경력 전체 보기</summary><h4>이력</h4><ul><li>2001~2004 인천 숭의초등학교</li><li>2005~2007 동인천중학교</li><li>2008~2010 군산상업고등학교</li><li>2011~2014 동국대학교 (체육교육과)</li><li>2015~2020 삼성 라이온즈</li></ul><h4>경력</h4><ul><li>2004 제2회 SK와이번스 대회 우승 (최우수선수상)</li><li>2004 제47회 인천고 대회 우승 (수훈선수상)</li><li>2004 제48회 동산고 대회 준우승 (감투상)</li><li>2007 제51회 동산고 대회 우승 (수훈선수상)</li><li>2007 제50회 인천고 대회 준우승 (수훈선수상)</li><li>2008 제30회 대붕기 전국고교야구대회 우승</li><li>2008 제6회 미추홀기 전국고교야구대회 우승</li><li>2010 제40회 봉황대기 전국고교야구대회 준우승 (최다도루상)</li><li>2012 제5회 KBO 총재기 전국대학야구대회 우승</li><li>2013 제52회 전국대학야구 춘계리그 우승</li><li>2013 제68회 전국대학야구 선수권대회 우승</li><li>2013 제94회 전국체전 야구 일반부 우승 (금메달)</li><li>2014 제7회 KBO 총재기 전국대학야구대회 우승</li><li>2014 제53회 전국대학야구 춘계리그 우승</li><li>2014 제69회 전국대학야구 선수권대회 우승</li><li>2014 제95회 전국체전 야구 일반부 우승 (금메달)</li></ul></details>
+    </div>
+  </div>
+  <h3 class="subhead">수업 모습</h3>
+  <div class="gallery"><img src="img/g1.jpg" alt="수업 사진 1" loading="lazy"><img src="img/g2.jpg" alt="수업 사진 2" loading="lazy"><img src="img/g3.jpg" alt="수업 사진 3" loading="lazy"><img src="img/g4.jpg" alt="수업 사진 4" loading="lazy"><img src="img/g5.jpg" alt="수업 사진 5" loading="lazy"><img src="img/g6.jpg" alt="수업 사진 6" loading="lazy"><img src="img/g7.jpg" alt="수업 사진 7" loading="lazy"><img src="img/g8.jpg" alt="수업 사진 8" loading="lazy"><img src="img/g9.jpg" alt="수업 사진 9" loading="lazy"><img src="img/g10.jpg" alt="수업 사진 10" loading="lazy"></div>
+  <p class="muted">옆으로 넘겨서 더 보기</p>
+</div></section>
+
+<section id="class"><div class="wrap">
+  <h2>수업 구성</h2>
+  <p><b>60분 원샷 커리큘럼</b> · 한 번 수업 안에서 안전 교육부터 실전 경기까지 모두 경험해요.</p>
+  <ol class="steps"><li class="step"><span class="min">10분</span><div><h3>오리엔테이션 & 안전 브리핑</h3><p class="muted">안전수칙 콜-앤-리스폰스, 목표·특이사항 체크</p><p class="gain">→ 안전 최우선 + 책임감·집중력</p></div></li><li class="step"><span class="min">10분</span><div><h3>다이나믹 워밍업</h3><p class="muted">전신 스트레칭 & 성장판 자극 점프, 밸런스·협응 드릴</p><p class="gain">→ 키·체력 균형 발달 + 부상 예방</p></div></li><li class="step"><span class="min">10분</span><div><h3>수비 스킬업</h3><p class="muted">캐치볼 그립·풋워크 교정, 집중력 미션 게임</p><p class="gain">→ 기본기 탄탄 + 순발력 강화</p></div></li><li class="step"><span class="min">10분</span><div><h3>타격 파워업</h3><p class="muted">티볼 스윙 메커니즘 점검, 손-눈 협응 리듬 배팅</p><p class="gain">→ 정확도·파워 UP + 성취감</p></div></li><li class="step"><span class="min">20분</span><div><h3>실전 시뮬레이션 경기</h3><p class="muted">공격·수비 순환 미니 게임, 실시간 코칭 & 리뷰</p><p class="gain">→ 전략 사고 + 팀워크·리더십 성장</p></div></li></ol>
+  <p class="muted">주말반은 1시간 30분 수업입니다.</p>
+  <div class="point benefit"><h3>학교 체육과 연결돼요</h3><ul><li>‘티볼·소프트’ 교과 과정 용어를 그대로 사용해 학교 체육 자신감 UP</li><li>실기 평가 대비 (기본기·포지션 이해도 선행)</li><li>친구들에게 규칙·전술을 설명하며 리더십 쑥쑥</li><li>규칙적인 운동 루틴으로 집중력·건강 함께 향상</li></ul></div>
+</div></section>
+
+<section id="schedule"><div class="wrap">
+  <h2>시간표 · 수업 현황</h2>
+  <p class="muted">자리 상황은 매주 업데이트됩니다.</p>
+  <div class="tbl"><table class="sched">
+    <thead><tr><th>요일</th><th>시간</th><th>현황</th><th>수업 안내</th></tr></thead>
+    <tbody id="sched"></tbody>
+  </table></div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <h2>요금표</h2>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab4" aria-selected="true" aria-controls="p4">4주권</button>
+    <button role="tab" id="tab8" aria-selected="false" aria-controls="p8">8주권</button>
+  </div>
+  <div class="tbl" id="p4" role="tabpanel"><table>
+    <thead><tr><th>주 횟수</th><th style="text-align:right">4주 요금</th></tr></thead>
+    <tbody id="b4"></tbody></table></div>
+  <div class="tbl" id="p8" role="tabpanel" hidden><table>
+    <thead><tr><th>주 횟수</th><th style="text-align:right">8주 요금</th></tr></thead>
+    <tbody id="b8"></tbody></table></div>
+</div></section>
+
+<section id="pickup"><div class="wrap">
+  <h2>픽업 노선</h2>
+  <p>평일 수업은 픽업을 운영하고 있어요. 토·일 수업은 픽업이 없습니다.</p>
+  <div class="point soon"><span class="tag">준비 중</span><h3>픽업 노선 지도를 준비 중입니다.</h3><p class="muted">픽업 가능 지역과 시간은 카카오톡 채널이나 전화로 문의해 주세요.</p></div>
+</div></section>
+
+<section id="notice"><div class="wrap">
+  <h2>공지사항</h2>
+  <div class="notices">
+    <details class="point notice" open>
+      <summary><span class="tag">수업</span>보강 수업 안내</summary>
+      <ul>
+        <li>결석 예정일을 <b>미리 연락</b>주시면 등록 기간 안에 언제든 보강 수업을 예약할 수 있어요.</li>
+        <li>보강 수업은 정원과 운영 일정에 따라 예약 후 참여합니다.</li>
+        <li>보강 수업은 원칙적으로 <b>픽업이 없어요.</b> 차량 시간과 동선이 맞으면 가능할 수 있으니, 필요하면 꼭 미리 말씀해 주세요.</li>
+      </ul>
+      <p class="muted">문의: 카카오톡 채널 또는 센터 0507-1415-6353</p>
+    </details>
+    <details class="point notice">
+      <summary><span class="tag">안내</span>오시는 길 · 주차</summary>
+      <ul>
+        <li><b>주소</b> 인천 부평구 안남로 429 지하 1층 (마스터 아카데미 야구교실)</li>
+        <li><b>주차</b> 건물 정면에서 왼쪽으로 돌아 건물 뒤편 주차장을 이용해 주세요. 센터 이용 고객은 무료예요.</li>
+        <li>주차장 차단기가 내려가 있으면 센터로 연락 주세요.</li>
+        <li>처음 오시면 위치가 헷갈릴 수 있어요. 연락 주시면 안내해 드립니다.</li>
+      </ul>
+      <p class="muted">센터 0507-1415-6353 · <a href="https://naver.me/GnRMueMO" target="_blank" rel="noopener">네이버 지도에서 보기</a></p>
+    </details>
+    <details class="point notice">
+      <summary><span class="tag">FAQ</span>자주 묻는 질문</summary>
+      <dl class="faq">
+        <dt>야구가 처음인데 괜찮나요?</dt><dd>물론이에요. 처음 하는 친구도 쉽게 배울 수 있게 기초부터 차근차근 지도합니다.</dd>
+        <dt>몇 살부터 할 수 있나요?</dt><dd>7세부터 가능해요. 연령과 운동 능력에 맞춰 수업합니다.</dd>
+        <dt>픽업이 되나요?</dt><dd>네, 운영하고 있어요. 수업 시간에 따라 운행 지역과 시간이 달라지니 등록 전에 문의해 주세요.</dd>
+        <dt>글러브와 배트를 사야 하나요?</dt><dd>처음에는 센터 장비로 수업할 수 있어요. 꾸준히 배우게 되면 개인 장비 구매를 추천드려요.</dd>
+      </dl>
+    </details>
+  </div>
+</div></section>
+
+<section id="event"><div class="wrap">
+  <h2>이벤트</h2>
+  <p>모든 할인은 <b>중복으로 받을 수 있어요.</b></p>
+  <div class="events">
+    <div class="point ev"><div class="pct">20<small>%</small></div><div><h3>형제 할인</h3><p class="muted">형제가 함께 등록하면 20% 할인</p></div></div>
+    <div class="point ev"><div class="pct">20<small>%</small></div><div><h3>지인 할인</h3><p class="muted">지인과 함께 등록하면 <b>두 회원 모두</b> 20% 할인</p></div></div>
+    <div class="point ev ev-wide"><div class="pct">10<small>%</small></div><div><h3>수업 후기 이벤트</h3><p class="muted">SNS·커뮤니티에 수업 후기를 남기면 다음 재등록 수업료 10% 할인</p></div>
+      <ol class="how"><li>인스타그램, 네이버 블로그, 맘카페 등에 수업 후기 작성</li><li>후기 링크나 캡처를 센터로 전달</li><li>다음 재등록 때 10% 할인 적용</li></ol>
+      <p class="fine">체험 수업·정규 수업 후기 모두 참여 가능 · 후기 1건당 결제권 1개에 적용</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>체험 신청 · 문의</h2>
+  <p>상담 시간에는 대표가 직접 상담합니다. 그 외 시간에는 카카오톡 채널로 남겨주시면 상담 시간에 연락드려요.</p>
+  <div class="point contact">
+    <div class="crow"><span class="clabel">상담 시간</span><b>10:00 ~ 18:00</b></div>
+    <div class="crow"><span class="clabel">전화</span><a class="phone" href="tel:050714156353">0507-1415-6353</a></div>
+    <div class="crow"><span class="clabel">주소</span><span>인천 부평구 안남로 429 지하 1층<br><small class="muted">건물 뒤편 주차장 무료 이용</small></span></div>
+  </div>
+  <div class="links">
+    <a class="lk kakao" href="http://pf.kakao.com/_iUXan" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.125 0H1.875C.8394 0 0 .8394 0 1.875v20.25C0 23.1606.8394 24 1.875 24h20.25C23.1606 24 24 23.1606 24 22.125V1.875C24 .8394 23.1606 0 22.125 0zM12 18.75c-.591 0-1.1697-.0413-1.7317-.1209-.5626.3965-3.813 2.6797-4.1198 2.7225 0 0-.1258.0489-.2328-.0141s-.0876-.2282-.0876-.2282c.0322-.2198.8426-3.0183.992-3.5333-2.7452-1.36-4.5701-3.7686-4.5701-6.5135C2.25 6.8168 6.6152 3.375 12 3.375s9.75 3.4418 9.75 7.6875c0 4.2457-4.3652 7.6875-9.75 7.6875zM8.0496 9.8672h-.8777v3.3417c0 .2963-.2523.5372-.5625.5372s-.5625-.2409-.5625-.5372V9.8672h-.8777c-.3044 0-.552-.2471-.552-.5508s.2477-.5508.552-.5508h2.8804c.3044 0 .552.2471.552.5508s-.2477.5508-.552.5508zm10.9879 2.9566a.558.558 0 0 1 .108.4167.5588.5588 0 0 1-.2183.371.5572.5572 0 0 1-.3383.1135.558.558 0 0 1-.4493-.2236l-1.3192-1.7479-.1952.1952v1.2273a.5635.5635 0 0 1-.5627.5628.563.563 0 0 1-.5625-.5625V9.3281c0-.3102.2523-.5625.5625-.5625s.5625.2523.5625.5625v1.209l1.5694-1.5694c.0807-.0807.1916-.1252.312-.1252.1404 0 .2814.0606.3871.1661.0985.0984.1573.2251.1654.3566.0082.1327-.036.2542-.1241.3425l-1.2818 1.2817 1.3845 1.8344zm-8.3502-3.5023c-.095-.2699-.3829-.5475-.7503-.5557-.3663.0083-.6542.2858-.749.5551l-1.3455 3.5415c-.1708.5305-.0217.7272.1333.7988a.8568.8568 0 0 0 .3576.0776c.2346 0 .4139-.0952.4678-.2481l.2787-.7297 1.7152.0001.2785.7292c.0541.1532.2335.2484.4681.2484a.8601.8601 0 0 0 .3576-.0775c.1551-.0713.3041-.2681.1329-.7999l-1.3449-3.5398zm-1.3116 2.4433l.5618-1.5961.5618 1.5961H9.3757zm5.9056 1.3836c0 .2843-.2418.5156-.5391.5156h-1.8047c-.2973 0-.5391-.2314-.5391-.5156V9.3281c0-.3102.2576-.5625.5742-.5625s.5742.2523.5742.5625v3.3047h1.1953c.2974 0 .5392.2314.5392.5156z"/></svg><span>카카오톡 채널</span></a>
+    <a class="lk naver" href="https://naver.me/GnRMueMO" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845Z"/></svg><span>네이버 플레이스</span></a>
+    <a class="lk insta" href="https://www.instagram.com/baseball_clinic_" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>인스타그램</span></a>
+    <a class="lk blog" href="https://blog.naver.com/baseball_clinic" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-4 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 4v2h10V8H7Zm0 4v2h7v-2H7Z"/></svg><span>블로그</span></a>
+  </div>
+  <!-- 구글 폼이 준비되면 아래 버튼 주소를 폼 주소로 바꾸기 (지금은 카카오톡 채널) -->
+  <a class="trial-cta" id="trial" href="http://pf.kakao.com/_iUXan" target="_blank" rel="noopener">체험 수업 신청하기<small>카카오톡 채널로 남겨주시면 상담 시간에 연락드려요</small></a>
+</div></section>
+
+<footer><div class="wrap"><p class="muted">마스터 아카데미 · 인천 부평구 안남로 429 지하 1층 · 0507-1415-6353</p></div></footer>
+
+<script>
+const won=n=>n.toLocaleString('ko-KR')+'원';
+const fill=(id,base,step)=>{const tb=document.getElementById(id);for(let i=1;i<=7;i++){const tr=document.createElement('tr');tr.innerHTML=`<td>주 ${i}회</td><td class="num">${won((base+step*(i-1))*10000)}</td>`;tb.appendChild(tr);}};
+fill('b4',12,6);fill('b8',23,11);
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.getElementById('p4').hidden=b.id!=='tab4';document.getElementById('p8').hidden=b.id!=='tab8';
+}));
+const ds=document.querySelectorAll('.coach details');
+ds.forEach(d=>d.addEventListener('toggle',()=>ds.forEach(o=>{if(o!==d&&o.open!==d.open)o.open=d.open;})));
+// 시간표 현황: 아래 숫자(현재 인원)만 바꾸면 표시가 자동으로 바뀝니다. 정원 8명, 5명부터 마감 임박
+const SCHEDULE=[
+  ['월','16:00',3,'1시간 · 픽업 가능'],['월','18:00',4,'1시간 · 픽업 가능'],
+  ['화','18:00',7,'1시간 · 픽업 가능'],
+  ['수','16:00',9,'1시간 · 픽업 가능'],['수','18:00',1,'1시간 · 픽업 가능'],
+  ['목','18:00',4,'1시간 · 픽업 가능'],
+  ['금','16:00',5,'1시간 · 픽업 가능'],['금','18:00',8,'1시간 · 픽업 가능'],
+  ['토','12:00',6,'1시간 30분 · 픽업 없음'],
+  ['일','12:00',5,'1시간 30분 · 픽업 없음']];
+const CAP=8, NEAR=5;
+// 구글 시트 연동: 시트를 '웹에 게시'(CSV)한 주소를 아래에 넣으면, 위 숫자 대신 시트 내용으로 표시됩니다.
+// 시트 칸 순서: 요일 | 시간 | 현재인원 | 안내   (첫 줄은 제목 줄)
+const SHEET_CSV_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vQe4M20xrkKygFp7PlOBbeM3Drtf_AA4JqsaB4mRuUGLxiIHRktgmBi01XRACV22HJKOeZ1Ukpukvqf/pub?output=csv';
+function renderSchedule(rows){const tb=document.getElementById('sched');tb.innerHTML='';rows.forEach((r,i)=>{const [d,t,n,note]=r;const tr=document.createElement('tr');
+  const first=i===0||rows[i-1][0]!==d;const span=rows.filter(x=>x[0]===d).length;
+  const st=n>=CAP?['full','마감']:n>=NEAR?['warn','마감 임박']:['ok','등록 가능'];
+  if(first){tr.className='day-start';tr.innerHTML='<td rowspan="'+span+'">'+d+'</td>';}
+  tr.insertAdjacentHTML('beforeend','<td class="time">'+t+'</td><td><span class="chip '+st[0]+'">'+st[1]+'</span></td><td class="note">'+(note||'')+'</td>');
+  tb.appendChild(tr);});}
+renderSchedule(SCHEDULE);
+if(SHEET_CSV_URL){fetch(SHEET_CSV_URL,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject()).then(txt=>{
+  const rows=txt.trim().split(/\r?\n/).slice(1).map(l=>l.split(',').map(c=>c.replace(/^"|"$/g,'').trim())).filter(c=>c[0]&&c[1]).map(c=>[c[0],c[1],parseInt(c[2],10)||0,c[3]||'']);
+  if(rows.length)renderSchedule(rows);}).catch(()=>{});}
+</script>
+
+</body>
+</html>
