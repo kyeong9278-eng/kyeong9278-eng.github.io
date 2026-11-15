@@ -105,7 +105,7 @@ th{font-size:14px;color:var(--ink);font-weight:700;background:var(--todo-bg)}
 td:first-child{font-family:var(--display);font-size:17px}
 td.num{text-align:right;font-weight:700}
 .chip{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;border:2px solid currentColor}
-.chip.ok{color:var(--ok)} .chip.warn{color:var(--warn)} .chip.tbd{color:var(--muted)}
+.chip.ok{color:var(--ok)} .chip.focus{color:#1d5fc2} .chip.warn{color:var(--warn)} .chip.tbd{color:var(--muted)}
 .tabs{display:flex;gap:8px}
 .tabs button{font-family:var(--display);font-size:17px;padding:8px 18px;border-radius:99px;border:0;background:var(--surface);color:var(--ink);cursor:pointer;border:2px solid var(--edge)}
 .tabs button[aria-selected="true"]{background:var(--sun);color:#3a3352;box-shadow:0 3px 0 #e0b52c}
@@ -347,7 +347,7 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 }));
 const ds=document.querySelectorAll('.coach details');
 ds.forEach(d=>d.addEventListener('toggle',()=>ds.forEach(o=>{if(o!==d&&o.open!==d.open)o.open=d.open;})));
-// 시간표 현황: 아래 숫자(현재 인원)만 바꾸면 표시가 자동으로 바뀝니다. 정원 10명, 6명부터 마감 임박
+// 시간표 현황: 아래 숫자(현재 인원)만 바꾸면 표시가 자동으로 바뀝니다. 정원 10명 · 0~2명 집중 수업 가능 · 3~5명 등록 가능 · 6~9명 마감 임박 · 10명 마감
 const SCHEDULE=[
   ['월','16:00',3,'1시간 · 픽업 가능'],['월','18:00',4,'1시간 · 픽업 가능'],
   ['화','18:00',7,'1시간 · 픽업 가능'],
@@ -356,13 +356,13 @@ const SCHEDULE=[
   ['금','16:00',5,'1시간 · 픽업 가능'],['금','18:00',8,'1시간 · 픽업 가능'],
   ['토','12:00',6,'1시간 30분 · 픽업 없음'],
   ['일','12:00',5,'1시간 30분 · 픽업 없음']];
-const CAP=10, NEAR=6;
+const CAP=10, NEAR=6, FOCUS=3;
 // 구글 시트 연동: 시트를 '웹에 게시'(CSV)한 주소를 아래에 넣으면, 위 숫자 대신 시트 내용으로 표시됩니다.
 // 시트 칸 순서: 요일 | 시간 | 현재인원 | 안내   (첫 줄은 제목 줄)
 const SHEET_CSV_URL='https://docs.google.com/spreadsheets/d/e/2PACX-1vQe4M20xrkKygFp7PlOBbeM3Drtf_AA4JqsaB4mRuUGLxiIHRktgmBi01XRACV22HJKOeZ1Ukpukvqf/pub?output=csv';
 function renderSchedule(rows){const tb=document.getElementById('sched');tb.innerHTML='';rows.forEach((r,i)=>{const [d,t,n,note]=r;const tr=document.createElement('tr');
   const first=i===0||rows[i-1][0]!==d;const span=rows.filter(x=>x[0]===d).length;
-  const st=n>=CAP?['full','마감']:n>=NEAR?['warn','마감 임박']:['ok','등록 가능'];
+  const st=n>=CAP?['full','마감']:n>=NEAR?['warn','마감 임박']:n>=FOCUS?['ok','등록 가능']:['focus','집중 수업 가능'];
   if(first){tr.className='day-start';tr.innerHTML='<td rowspan="'+span+'">'+d+'</td>';}
   tr.insertAdjacentHTML('beforeend','<td class="time">'+t+'</td><td><span class="chip '+st[0]+'">'+st[1]+'</span></td><td class="note">'+(note||'')+'</td>');
   tb.appendChild(tr);});}
